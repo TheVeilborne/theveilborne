@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 23% 94%;
+    --foreground: 222 26% 12%;
+    --card: 36 23% 94%;
+    --card-foreground: 222 26% 12%;
+    --popover: 36 23% 94%;
+    --popover-foreground: 222 26% 12%;
+    --primary: 222 26% 12%;
+    --primary-foreground: 36 23% 94%;
+    --secondary: 36 8% 41%;
+    --secondary-foreground: 36 23% 94%;
+    --muted: 36 15% 88%;
+    --muted-foreground: 36 8% 41%;
+    --accent: 231 62% 76%;
+    --accent-foreground: 222 26% 12%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 26% 12%;
+    --input: 36 15% 88%;
+    --ring: 231 62% 76%;
+    --radius: 1.75rem;
+    
+    --navy: #0B0F1C;
+    --paper: #F4F1EC;
+    --lilac: #9AA3E8;
+    --charcoal: #141826;
+    --warm-gray: #6D6A66;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--paper);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 0.95;
+  }
+}
+
+@layer components {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  }
+  
+  .card-shadow {
+    box-shadow: 0 18px 50px rgba(20, 24, 38, 0.10);
+  }
+  
+  .card-border {
+    border: 1px solid rgba(20, 24, 38, 0.10);
+  }
+  
+  .card-border-light {
+    border: 1px solid rgba(244, 241, 236, 0.14);
+  }
+  
+  .label-uppercase {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+  }
+  
+  .nav-link {
+    @apply relative text-sm font-medium transition-colors duration-200;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-px bg-current transition-all duration-300;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200;
+    background-color: var(--lilac);
+    color: var(--charcoal);
+    border-radius: 9999px;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium transition-all duration-200;
+    background-color: transparent;
+    color: var(--charcoal);
+    border: 1px solid rgba(20, 24, 38, 0.2);
+    border-radius: 9999px;
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    background-color: rgba(20, 24, 38, 0.05);
+  }
+  
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10vw;
+    line-height: 1;
+    color: var(--lilac);
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+  }
+  
+  .section-pinned {
+    @apply relative w-screen h-screen overflow-hidden;
+  }
+  
+  .image-card {
+    @apply overflow-hidden;
+    border-radius: 28px;
+  }
+  
+  .image-card img {
+    @apply w-full h-full object-cover;
+  }
+  
+  .accent-card {
+    background-color: var(--lilac);
+    border-radius: 28px;
+  }
+  
+  .dark-card {
+    background-color: var(--navy);
+    border-radius: 28px;
+    border: 1px solid rgba(244, 241, 236, 0.14);
+  }
+}
+
+@layer utilities {
+  .text-charcoal {
+    color: var(--charcoal);
+  }
+  
+  .text-warm-gray {
+    color: var(--warm-gray);
+  }
+  
+  .text-lilac {
+    color: var(--lilac);
+  }
+  
+  .text-navy {
+    color: var(--navy);
+  }
+  
+  .bg-paper {
+    background-color: var(--paper);
+  }
+  
+  .bg-navy {
+    background-color: var(--navy);
+  }
+  
+  .bg-lilac {
+    background-color: var(--lilac);
+  }
+}
