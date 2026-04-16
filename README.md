@@ -1,4 +1,4 @@
-TheVeilborne is a reflective blog exploring faith, personal growth, and mindful living.
+
 
 <!--
 **TheVeilborne/theveilborne** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
